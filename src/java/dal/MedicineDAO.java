@@ -27,12 +27,20 @@ public class MedicineDAO extends DBContext{
         }
     }
     
-    public void updateById(long id, String name, double price, String information, int amount) {
-        String sql = "UPDATE tbl_medicine SET name = " + name + ", price = " + price +
-                ", information = " + information + ", amount = " + amount + 
-                "WHERE id = " + id;
+    public void updateById(String id, String name, String price, String information, String amount) {
+        String sql = "UPDATE tbl_medicine"
+                + " SET name = ?,"
+                + " price = ? ,"
+                + " information = ?,"
+                + " amount = ?"
+                + " WHERE id = ?";
         try {
             ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, price);
+            ps.setString(3, information);
+            ps.setString(4, amount);
+            ps.setString(5, id);
             ps.executeUpdate();
         } catch(Exception e) {
             System.out.println("ERROR MedicineDAO.updateById()" + e.getMessage());

@@ -74,7 +74,17 @@ public class MedicineViewController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        String price = request.getParameter("price");
+        String info = request.getParameter("information");
+        String amount = request.getParameter("amount");
+        
+        MedicineDAO medicineDAO = new MedicineDAO();
+        medicineDAO.updateById(id, name, price, info, amount);
+        
+        request.setAttribute("medicines", medicineDAO.getAll());
+        request.getRequestDispatcher("/view/medicine.jsp").forward(request, response);
     }
 
     /**
