@@ -8,6 +8,14 @@
         <servlet-name>HealthcareServiceController</servlet-name>
         <servlet-class>controller.HealthcareServiceController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>controller.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddMedicalRecordController</servlet-name>
+        <servlet-class>controller.AddMedicalRecordController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MedicineViewController</servlet-name>
         <url-pattern>/medicine</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>HealthcareServiceController</servlet-name>
         <url-pattern>/healthcare-service</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddMedicalRecordController</servlet-name>
+        <url-pattern>/AddMedicalRecordController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
